@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Efek Teks Gradasi */
         .judul-gradasi {
             font-size: 42px;
             background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
@@ -25,22 +24,20 @@
             padding-bottom: 50px;
         }
 
-        /* --- Animasi Muncul dari Bawah (Fade Up) --- */
         .animasi-naik {
             opacity: 0;
-            transform: translateY(40px); /* Posisi awal sedikit di bawah */
+            transform: translateY(40px);
             animation: munculKeAtas 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-            animation-delay: var(--delay, 0s); /* Ini agar munculnya bergantian */
+            animation-delay: var(--delay, 0s);
         }
 
         @keyframes munculKeAtas {
             to {
                 opacity: 1;
-                transform: translateY(0); /* Kembali ke tempat semula */
+                transform: translateY(0);
             }
         }
 
-        /* Tata letak tombol kembali */
         .wadah-kembali {
             text-align: center;
             margin-top: 50px;
@@ -49,7 +46,6 @@
 </head>
 <body>
 
-    <!-- Navigasi -->
     <nav>
         <div class="logo">Radit.</div>
         <ul>
@@ -60,13 +56,10 @@
         </ul>
     </nav>
 
-    <!-- Konten Riwayat Pendidikan -->
     <section class="halaman-pendidikan">
-        <!-- Animasi pada Judul -->
         <h2 class="judul-gradasi animasi-naik" style="--delay: 0.1s;">Riwayat Pendidikan</h2>
         
         <div class="edu-grid">
-            <!-- Kartu Kuliah (Animasi 0.2s) -->
             <div class="edu-card animasi-naik" style="--delay: 0.2s;" onclick="bukaModalPendidikan('kuliah')">
                 <div class="edu-icon"><img src="College.png" alt="Kuliah"></div>
                 <div class="edu-info">
@@ -75,7 +68,6 @@
                 </div>
             </div>
 
-            <!-- Kartu SMK (Animasi 0.3s) -->
             <div class="edu-card animasi-naik" style="--delay: 0.3s;" onclick="bukaModalPendidikan('smk')">
                 <div class="edu-icon"><img src="Akl.png" alt="SMK"></div>
                 <div class="edu-info">
@@ -84,7 +76,6 @@
                 </div>
             </div>
 
-            <!-- Kartu SMP (Animasi 0.4s) -->
             <div class="edu-card animasi-naik" style="--delay: 0.4s;" onclick="bukaModalPendidikan('smp')">
                 <div class="edu-icon"><img src="Esempe.png" alt="SMP"></div>
                 <div class="edu-info">
@@ -93,7 +84,6 @@
                 </div>
             </div>
 
-            <!-- Kartu SD (Animasi 0.5s) -->
             <div class="edu-card animasi-naik" style="--delay: 0.5s;" onclick="bukaModalPendidikan('sd')">
                 <div class="edu-icon"><img src="Esdeh.png" alt="SD"></div>
                 <div class="edu-info">
@@ -102,7 +92,6 @@
                 </div>
             </div>
 
-            <!-- Kartu TK (Animasi 0.6s) -->
             <div class="edu-card animasi-naik" style="--delay: 0.6s;" onclick="bukaModalPendidikan('tk')">
                 <div class="edu-icon"><img src="teka.png" alt="TK"></div>
                 <div class="edu-info">
@@ -112,13 +101,11 @@
             </div>
         </div>
 
-        <!-- Tombol Kembali ke Beranda (Animasi 0.7s) -->
         <div class="wadah-kembali animasi-naik" style="--delay: 0.7s;">
             <a href="index.html" class="btn btn-outline">Kembali ke Beranda</a>
         </div>
     </section>
 
-    <!-- Kotak Pop-up (Modal) -->
     <div id="pendidikanModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="tutupModalPendidikan()">&times;</span>
@@ -128,9 +115,7 @@
         </div>
     </div>
 
-    <!-- Script JavaScript -->
     <script>
-        // --- FITUR DARK MODE ---
         if (localStorage.getItem("theme") === "dark") {
             document.body.classList.add("dark-mode");
             document.getElementById("themeToggle").textContent = "☀️"; 
@@ -151,7 +136,6 @@
             }
         }
 
-        // --- FITUR POP-UP PENDIDIKAN ---
         const dataPendidikan = {
             kuliah: {
                 judul: "Universitas Lampung",
@@ -160,22 +144,22 @@
             },
             smk: {
                 judul: "SMK N 1 Kotabumi",
-                gambar: "smk.jpg",
+                gambar: "SMK.jpg",
                 teks: "Menempuh pendidikan menengah di SMK Negeri 1 Kotabumi dengan fokus keahlian Akuntansi. Melalui konsentrasi ini, saya membangun fondasi yang kuat dalam ketelitian, manajemen data keuangan, serta logika sistematis yang kini menjadi pendukung utama dalam perjalanan saya di dunia teknologi informasi."
             },
             smp: {
                 judul: "SMP N 7 Kotabumi",
-                gambar: "smp.jpg",
+                gambar: "SMP.jpg",
                 teks: "Masa pendidikan di SMP Negeri 7 Kotabumi merupakan fase awal bagi saya dalam membangun karakter dan rasa ingin tahu yang tinggi. Di sekolah ini, saya mulai mengasah kemampuan bersosialisasi dan kerja sama tim melalui berbagai kegiatan sekolah, yang menjadi fondasi penting bagi pengembangan diri saya di tahap-tahap selanjutnya."
             },
             sd: {
                 judul: "SD N 5 Kotabumi",
-                gambar: "sd.jpg",
+                gambar: "SD.jpg",
                 teks: "Masa pendidikan di SD Negeri 5 Kotabumi adalah langkah pertama saya dalam mengenal dunia pendidikan formal. Di sini, saya mulai membentuk pondasi karakter, kedisiplinan, dan semangat belajar yang menjadi akar bagi seluruh perjalanan akademik dan pencapaian saya hingga saat ini."
             },
             tk: {
                 judul: "TK Islam Kartika",
-                gambar: "tk.jpg",
+                gambar: "Tk.jpg",
                 teks: "Pendidikan di TK Islam Kartika merupakan langkah awal saya dalam mengenal lingkungan sosial dan nilai-nilai dasar kehidupan. Di tempat inilah benih kreativitas dan rasa ingin tahu saya mulai tumbuh, menjadi pondasi pertama bagi perjalanan panjang saya dalam dunia pendidikan hingga saat ini."
             }
         };
