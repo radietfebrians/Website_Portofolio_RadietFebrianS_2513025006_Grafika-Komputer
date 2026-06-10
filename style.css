@@ -1,0 +1,448 @@
+/* =========================================
+   1. PENGATURAN DASAR & NAVIGASI
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li { margin-left: 30px; }
+
+nav ul li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover { color: #3498db; }
+
+/* Jarak umum setiap bagian */
+section { padding: 100px 50px 50px 50px; }
+
+/* =========================================
+   2. BAGIAN HOME (HERO)
+========================================= */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    padding: 120px 10% 80px 10%;
+}
+
+.hero-content {
+    max-width: 55%;
+    text-align: left;
+}
+
+.hero h1 {
+    font-size: 48px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+/* Memastikan nama tidak terpotong dan diberi efek warna gradasi (gradient) */
+.hero h1 span {
+    /* Mengatur warna gradasi dari cyan terang ke biru elegan */
+    background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+    
+    /* Memotong background agar hanya menempel pada bentuk teks */
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    /* Membuat warna dasar teks menjadi transparan agar gradasinya terlihat */
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    
+    white-space: nowrap; 
+}
+
+.hero p {
+    font-size: 18px;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+}
+
+/* Pengaturan bingkai foto profil (Gaya Kartu Miring & Glow) */
+.hero-photo img {
+    width: 320px; /* Sedikit dilebarkan... */
+    height: 400px; /* ...dan ditinggikan agar bentuknya seperti kartu vertikal */
+    border-radius: 24px; /* Mengubah bulat menjadi kotak dengan sudut melengkung halus */
+    object-fit: cover;
+    border: none; /* Menghilangkan bingkai putih tebal yang lama */
+    
+    /* Ini kode untuk Miring dan Cahaya (Glow) */
+    transform: rotate(-6deg); /* Memiringkan foto sedikit ke kiri */
+    box-shadow: -10px 15px 50px rgba(52, 152, 219, 0.6); /* Memberikan cahaya warna biru elegan */
+    
+    transition: all 0.4s ease; /* Membuat animasi mulus */
+}
+
+/* Efek keren saat kursor diarahkan ke foto */
+.hero-photo img:hover { 
+    transform: rotate(0deg) scale(1.03); /* Foto otomatis lurus tegak dan membesar sedikit */
+    box-shadow: 0 20px 60px rgba(52, 152, 219, 0.9); /* Cahaya birunya semakin terang menyebar */
+}
+
+.hero-photo img:hover { transform: scale(1.05); }
+
+/* Tombol Biru Umum */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+}
+
+/* Gaya untuk menata dua tombol agar rapi bersebelahan */
+.grup-tombol {
+    display: flex;
+    gap: 15px;
+}
+
+/* Gaya khusus untuk tombol "Tentang Saya" (Hanya garis luar/Outline) */
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid #3498db;
+    color: #3498db;
+}
+
+.btn-outline:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+/* Responsif untuk HP agar tombol ada di tengah */
+@media (max-width: 768px) {
+    .grup-tombol {
+        justify-content: center;
+    }
+}
+
+/* =========================================
+   3. RIWAYAT PENDIDIKAN (GRID CARDS)
+========================================= */
+.about, .portfolio { text-align: center; }
+
+.about h2, .portfolio h2 {
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.edu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.edu-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.edu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-color: #3498db;
+}
+
+.edu-icon {
+    width: 100px;
+    height: 100px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.edu-icon img { width: 70%; height: auto; }
+
+.edu-info h3 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.edu-info p {
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+.edu-file {
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #bdc3c7;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* =========================================
+   4. PENGUMPULAN TUGAS
+========================================= */
+.portfolio { background-color: #f8f9fa; }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.card h3 { font-size: 20px; color: #2c3e50; margin-bottom: 15px; }
+.card p { font-size: 15px; color: #666; margin-bottom: 20px; }
+
+.read-more {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: 600;
+    font-size: 14px;
+}
+.read-more:hover { text-decoration: underline; }
+
+/* =========================================
+   5. FITUR POP-UP (MODAL & VIDEO)
+========================================= */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 90%;
+    text-align: justify;
+    position: relative;
+    animation: munculMulus 0.3s ease-out;
+}
+
+.modal-content img {
+    width: 100%;
+    max-width: 100% !important; /* Kunci utama memaksa gambar tidak melewati batas kotak */
+    height: auto;
+    max-height: 300px; /* Sedikit ditinggikan agar foto grup terlihat lebih jelas */
+    object-fit: cover; /* Mencegah gambar menjadi gepeng */
+    border-radius: 8px;
+    margin: 15px auto; /* Memusatkan gambar */
+    display: block; /* Mencegah adanya jarak kosong aneh di bawah gambar */
+    border: 2px solid #ecf0f1;
+}
+.tugas-content {
+    max-width: 800px !important;
+}
+
+@keyframes munculMulus {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px; right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.close-btn:hover { color: #e74c3c; }
+
+/* Desain tombol Google Form */
+.btn-gform {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #3498db; 
+    color: #ffffff !important;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+.btn-gform:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+}
+
+/* Video YouTube Responsive */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; 
+    height: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #000; 
+}
+.video-container iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+}
+
+/* =========================================
+   6. DARK MODE (TEMA GELAP)
+========================================= */
+.theme-btn {
+    background: none; border: none;
+    font-size: 20px; cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-left: 10px;
+}
+.theme-btn:hover { transform: scale(1.2); }
+
+body.dark-mode { background-color: #121212; color: #e0e0e0; }
+body.dark-mode nav { background-color: #1e1e1e; box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05); }
+body.dark-mode .logo, body.dark-mode nav ul li a { color: #f1f1f1; }
+body.dark-mode .hero { background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%); }
+body.dark-mode .portfolio, body.dark-mode .about { background-color: #121212; }
+
+body.dark-mode .hero h1, body.dark-mode .about h2, 
+body.dark-mode .portfolio h2, body.dark-mode .edu-info h3, 
+body.dark-mode .card h3 { color: #f1f1f1; }
+
+body.dark-mode .hero p, body.dark-mode .edu-info p, body.dark-mode .card p { color: #b3b3b3; }
+
+body.dark-mode .card, body.dark-mode .edu-card, body.dark-mode .modal-content {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 15px rgba(255,255,255,0.05);
+    border-color: #333;
+}
+
+body.dark-mode .edu-icon { background-color: #2c2c2c; }
+body.dark-mode .close-btn { color: #f1f1f1; }
+body.dark-mode footer { background-color: #0a0a0a; }
+
+/* Tombol Outline di Mode Gelap */
+body.dark-mode .btn-outline {
+    border-color: #00d2ff;
+    color: #00d2ff;
+}
+body.dark-mode .btn-outline:hover {
+    background-color: #00d2ff;
+    color: #121212;
+}
+/* =========================================
+   7. FOOTER & RESPONSIVE HP
+========================================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2c3e50;
+    color: white;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 150px;
+    }
+    .hero-content { max-width: 100%; text-align: center; }
+    .hero-photo img {
+        width: 250px; height: 250px;
+        margin-bottom: 30px;
+    }
+    .edu-grid { grid-template-columns: 1fr; }
+}
+
+/* =========================================
+   ANIMASI MUNCUL DARI BAWAH (FADE UP)
+========================================= */
+.animasi-naik {
+    opacity: 0;
+    transform: translateY(40px); /* Posisi awal sedikit di bawah */
+    animation: munculKeAtas 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: var(--delay, 0s); /* Mengatur antrean muncul */
+}
+
+@keyframes munculKeAtas {
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Kembali ke tempat semula */
+    }
+}

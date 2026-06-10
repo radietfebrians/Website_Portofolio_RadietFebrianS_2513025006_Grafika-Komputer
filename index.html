@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio | Radiet Febrian</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Radit.</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pendidikan.html">Riwayat Pendidikan</a></li>
+            <li><a href="#tugas">Pengumpulan Tugas</a></li>
+            <li><button id="themeToggle" class="theme-btn" onclick="ubahTema()">🌙</button></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="animasi-naik" style="--delay: 0.1s;">Halo, Saya <br><span>Radiet Febrian S</span></h1>
+            
+            <p class="animasi-naik" style="--delay: 0.2s;">Mahasiswa Pendidikan Teknologi Informasi | Universitas Lampung</p>
+            
+            <div class="grup-tombol animasi-naik" style="--delay: 0.3s;">
+                <a href="#tugas" class="btn">Lihat Tugas</a>
+                <a href="tentang.html" class="btn btn-outline">Tentang Saya</a>
+            </div>
+        </div>
+        
+        <div class="hero-photo animasi-naik" style="--delay: 0.4s;">
+            <img src="Radit.jpeg" alt="Radiet Febrian">
+        </div>
+    </section>
+
+    <section id="tugas" class="portfolio">
+        <!-- Animasi masuk untuk Judul Tugas -->
+        <h2 class="animasi-naik" style="--delay: 0.1s;">Pengumpulan Tugas</h2>
+        
+        <div class="grid-container" id="tugasGrid">
+
+            <div class="card animasi-naik" style="--delay: 0.2s;">
+                <h3>Tugas GK 01</h3>
+                <p>Tautan pengumpulan tugas melalui Google Form beserta video presentasi materi.</p>
+                <a href="javascript:void(0)" class="read-more" onclick="bukaModalTugas('gk01')">Lihat Detail</a>
+            </div>
+            
+            <div class="card animasi-naik" style="--delay: 0.3s;">
+                <h3>Tugas GK 02</h3>
+                <p>Tautan pengumpulan tugas melalui Google Form beserta video presentasi materi.</p>
+                <a href="javascript:void(0)" class="read-more" onclick="bukaModalTugas('gk02')">Lihat Detail</a>
+            </div>
+
+            <div class="card animasi-naik" style="--delay: 0.4s;">
+                <h3>Tugas GK 03</h3>
+                <p>Tautan pengumpulan tugas melalui Google Form beserta video presentasi materi.</p>
+                <a href="javascript:void(0)" class="read-more" onclick="bukaModalTugas('gk03')">Lihat Detail</a>
+            </div>
+
+            <div class="card animasi-naik" style="--delay: 0.5s;">
+                <h3>Tugas GK 04</h3>
+                <p>Tautan pengumpulan tugas melalui Google Form beserta video presentasi materi.</p>
+                <a href="javascript:void(0)" class="read-more" onclick="bukaModalTugas('gk04')">Lihat Detail</a>
+            </div>
+
+            <div class="card animasi-naik" style="--delay: 0.6s;">
+                <h3>Tugas GK 05</h3>
+                <p>Tautan pengumpulan tugas melalui Google Form beserta video presentasi materi.</p>
+                <a href="javascript:void(0)" class="read-more" onclick="bukaModalTugas('gk05')">Lihat Detail</a>
+            </div>
+
+            <div class="card animasi-naik" style="--delay: 0.7s;">
+                <h3>Kuis 1</h3>
+                <p>Video presentasi dan demonstrasi materi tugas.</p>
+                <a href="javascript:void(0)" class="read-more" onclick="bukaModalTugas('gk06')">Lihat Detail</a>
+            </div>
+
+            <div class="card animasi-naik" style="--delay: 0.7s;">
+                <h3>Kuis 2</h3>
+                <p>Video presentasi dan demonstrasi materi tugas.</p>
+                <a href="javascript:void(0)" class="read-more" onclick="bukaModalTugas('gk07')">Lihat Detail</a>
+            </div>
+
+            <div class="card animasi-naik" style="--delay: 0.7s;">
+                <h3>Kuis 3</h3>
+                <p>Video presentasi dan demonstrasi materi tugas.</p>
+                <a href="javascript:void(0)" class="read-more" onclick="bukaModalTugas('gk08')">Lihat Detail</a>
+            </div>
+
+            <div class="card animasi-naik" style="--delay: 0.7s;">
+                <h3>Kuis 4</h3>
+                <p>Video presentasi dan demonstrasi materi tugas.</p>
+                <a href="javascript:void(0)" class="read-more" onclick="bukaModalTugas('gk09')">Lihat Detail</a>
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+   <div id="tugasModal" class="modal">
+        <div class="modal-content tugas-content"> 
+            <span class="close-btn" onclick="tutupModalTugas()">&times;</span>
+            <h3 id="tugasTitle" style="margin-bottom: 20px; color: #2c3e50;">Detail Tugas</h3>
+            
+            <a id="tugasLink" href="#" target="_blank" class="btn-gform">Kerjakan Tugas Google Form</a>
+
+            <div class="video-container">
+                <iframe id="tugasVideo" src="" title="YouTube video player" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Radiet Febrian S - 2513025006 - PTI2025B</p>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById("themeToggle");
+        const body = document.body;
+
+        if (localStorage.getItem("theme") === "dark") {
+            body.classList.add("dark-mode");
+            themeToggle.textContent = "☀️";
+        }
+
+        themeToggle.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+            
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+                themeToggle.textContent = "☀️";
+            } else {
+                localStorage.setItem("theme", "light");
+                themeToggle.textContent = "🌙";
+            }
+        });
+
+        const dataDaftarTugas = {
+            gk01: {
+                judul: "Grafika Komputer Tugas 1 - Tokoh Grafika Komputer",
+                gform: "https://forms.gle/pDaT6Nqupgx4EFbcA",
+                video: "https://www.youtube.com/embed/LuKraJlY8vw"
+            },
+            gk02: {
+                judul: "Grafika Komputer Tugas 2 - Sistem Grafika Komputer",
+                gform: "https://forms.gle/EPz58swGAUiNrcF3A",
+                video: "https://www.youtube.com/embed/Qo0WplzhTCo?si=zqbb_qs7_4G9_8Oe"
+            },
+            gk03: {
+                judul: "Grafika Komputer Tugas 3 - Algoritma Pembuatan Garis",
+                gform: "https://forms.gle/MQYf2JtFfL3hLyAZ9",
+                video: "https://www.youtube.com/embed/RMCgaOyMDis?si=Q_cVXs3HzKQ1zGIR"
+            },
+            gk04: {
+                judul: "Grafika Komputer Tugas 4 - Algoritma Pembentukan Lingkaran",
+                gform: "https://forms.gle/uEq2nC9erKb5NTqAA",
+                video: "https://www.youtube.com/embed/e7WvmnU-siE?si=WfA5-PKdkuNKidKT"
+            },
+            gk05: {
+                judul: "Grafika Komputer Tugas 5 - Algoritma Pembentukan Kurva",
+                gform: "https://forms.gle/y8zdEzUt8mFUWpiU9",
+                video: "https://www.youtube.com/embed/VTBQgDwfwxE?si=vjsTqu567mayHwFi"
+            },
+            gk06: {
+                judul: "Kuis 1 Persamaan Misteri ",
+                gform: "",
+                video: "https://www.youtube.com/embed/lYXbhtPzy98?si=ifgSFY49u7RkwV8C"
+            },
+            gk07: {
+                judul: "Kuis 2 Transformasi 2D",
+                gform: "",
+                video: "https://www.youtube.com/embed/va6QdJjHwXU?si=Y4SrJvyYJ5Y3fPnX"
+            },
+            gk08: {
+                judul: "Kuis 3 Algoritma Pemotongan Garis",
+                gform: "",
+                video: "https://www.youtube.com/embed/JOhEF022jsw?si=ahwYmLzwE4ADTXaj"
+            },
+            gk09: {
+                judul: "Kuis 4 Algoritma Pemotongan Garis",
+                gform: "",
+                video: "https://www.youtube.com/embed/aFTFZ34fy6c?si=Qgdnn_XbqDkfhhKv"
+            },
+        };
+
+        function bukaModalTugas(idTugas) {
+            const modal = document.getElementById("tugasModal");
+            
+            document.getElementById("tugasTitle").textContent = dataDaftarTugas[idTugas].judul;
+            document.getElementById("tugasLink").href = dataDaftarTugas[idTugas].gform;
+            document.getElementById("tugasVideo").src = dataDaftarTugas[idTugas].video;
+            
+            modal.style.display = "flex";
+        }
+
+        function tutupModalTugas() {
+            const modal = document.getElementById("tugasModal");
+            modal.style.display = "none";
+            
+            document.getElementById("tugasVideo").src = ""; 
+        }
+        
+        window.onclick = function(event) {
+            const modalTugas = document.getElementById("tugasModal");
+            if (event.target == modalTugas) {
+                modalTugas.style.display = "none";
+                document.getElementById("tugasVideo").src = ""; 
+            }
+        }
+    const bukaModalLama = bukaModalTugas;
+    bukaModalTugas = function(idTugas) {
+        bukaModalLama(idTugas);
+        
+        const tombolGform = document.getElementById("tugasLink");
+        if (!dataDaftarTugas[idTugas].gform) {
+            tombolGform.style.display = "none";
+        } else {
+            tombolGform.style.display = "";
+        }
+    };
+    </script>
+</body>
+</html>
